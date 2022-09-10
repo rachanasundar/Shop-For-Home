@@ -1,0 +1,23 @@
+<app-navbar></app-navbar><br>
+<h2 align="center">Stocks Report</h2><hr>
+<table class="center" *ngIf="!isEmpty">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Category</th>
+        <th>Stock</th>
+    </tr>
+    <tr *ngFor="let stock of stocks">
+        <td>{{stock.productId}}</td>
+        <td>{{stock.productName}}</td>
+        <td>{{stock.productPrice}}</td>
+        <td>{{stock.categories}}</td>
+        <td>{{stock.stock}}</td>
+        
+
+    </tr>
+</table>
+<div *ngIf="isEmpty">
+   <h5>No stocks to display</h5>
+</div>

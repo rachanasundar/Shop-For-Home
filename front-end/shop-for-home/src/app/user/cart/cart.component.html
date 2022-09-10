@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<h1 align="center"> YOUR CART</h1><hr>
+<div *ngIf="!emptyFlag">
+   
+    <div class="container1">
+    <h5>Total:{{total|currency:'INR'}}</h5>
+    <input type="button" class="btn1" value="Order" (click)="order()"><br>
+</div>
+</div>
+<div *ngFor="let cart of listOfCart">
+<div class="column">
+<div class="card">
+<div class="container">
+<img src="{{cart.imageUrl}}"><br>
+Product Id :{{cart.keys.productId}}<br>
+Product Name :{{cart.productName}}<br>
+Product Price :{{cart.productPrice|currency:'INR'}}<br>
+
+Quantity:{{cart.quantity}}<br>
+<form #quantityRef="ngForm" (ngSubmit)="updateQuantity(quantityRef)">
+   <input type="number" name="newQuantity" min="1"value=cart.quantity placeholder="Quantity" ngModel class="form-control" >
+<input type="submit" class="btn1" value="Update Quantity" (click)="productId(cart.keys.productId)">
+</form>
+
+Category :{{cart.categories}}<br>
+<br>
+<input type="button" class="btn1" value="Move to Wish List" (click)="moveToWishList(cart)">
+
+<input type="button" class="btn2" value="Delete" (click)="deleteFromCart(cart.keys)">
+
+</div><br><br>
+</div>
+</div>
+</div>
+   
+
+<div *ngIf="emptyFlag">
+    <h4 align="center">Ooops Your Cart is empty....</h4>
+</div>

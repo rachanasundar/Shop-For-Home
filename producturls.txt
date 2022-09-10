@@ -1,0 +1,63 @@
+insert into product
+value(101, "Round Table", 11500, "https://i.ytimg.com/vi/IBJ0ks0Qjm0/maxresdefault.jpg",
+15,"Tabel"); 
+insert into product
+value(102, "Chair", 5500, "https://www.royaloakindia.com/thumbimages/ROYIND-royaloak-finlay-visitor-chair-533x36870.webp",
+18,"Furniture"); 
+insert into product
+value(103, "Sofa Set", 25500, "https://m.media-amazon.com/images/I/51gBttfD8AL._SL1100_.jpg",
+13,"Sofa"); 
+insert into product
+value(104, "Dining Table", 32500, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrhLFEIGxS6g5qgo8aB--zfLVkC8MsUQpjcg&usqp=CAU",
+20,"Tabel); 
+insert into product
+value(105, "Printed Copper Bottle", 865, "https://cpimg.tistatic.com/05793587/b/4/Printed-Copper-Bottle-With-4-Glass-Set.jpg",
+16, "Bottle"); 
+insert into product
+value(106, "Vintage Carpet", 2550, "https://ii3.pepperfry.com/media/catalog/product/s/o/494x544/solid-pattern-polyester-machine-made-9-x-6-feet-carpet-solid-pattern-polyester-machine-made-9-x-6-fe-k3kfdn.jpg",
+18,"Carpet"); 
+insert into product
+value(107, "Retro telephone", 2422, "https://ii2.pepperfry.com/media/catalog/product/a/n/494x544/antique-golden-round-base-brass---wood-dummy-retro-telephone-by-exim-decor-antique-golden-round-base-7kr7lp.jpg",
+10,"Decor"); 
+insert into product
+value(108, "Double Bedding Set", 2158, "https://ii1.pepperfry.com/media/catalog/product/b/l/494x544/blue-180-tc-100--cotton-4-pieces-double-bedding-set-majestic-collection-by-bella-casa-blue-180-tc-10-vnktp9.jpg",
+25, "Bed"); 
+insert into product
+value(109, "Wall Clock", 3051, "https://ii1.pepperfry.com/media/catalog/product/b/l/494x544/black-metal-analog-wall-clock-black-metal-analog-wall-clock-sooa6w.jpg",
+10,"Decor");
+insert into product
+value(110, "Shelf Lamp", 3824, "https://ii2.pepperfry.com/media/catalog/product/t/h/494x544/three-tier-wooden-shelf-lamp-with-off-white-cotton-shade-natural-base-by-the-lighting-hub-three-tier-g2dmft.jpg",
+10, "Decor");
+insert into product
+value(111, "Iron Wall Art", 1368, "https://ii3.pepperfry.com/media/catalog/product/m/e/494x544/metal-butterfly-on-leaf-in-multicolour-wall-art-by-malik-design-metal-butterfly-on-leaf-in-multicolo-m1pitv.jpg",
+14,"Decor");
+insert into product
+value(112, "Television", 35798, "https://cdn.vox-cdn.com/thumbor/uAiIDhGfzvmvlheq_WrM35PlaaE=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19209344/thumbnail.jpeg",
+25,"Appliances");
+insert into product
+value(113, "Air Purifier", 3456, "https://ii1.pepperfry.com/media/wysiwyg/banners/Appliances_Collection_WEB_2_2x.jpg",
+18,"Appliances");
+insert into product
+value(114, "Buddha Decor Piece", 1675, "https://images-eu.ssl-images-amazon.com/images/I/513oXSfBzvL._SX300_SY300_QL70_FMwebp_.jpg",
+17,"Decor");
+insert into product
+value(115, "Bean Bag", 3428, "https://rukminim1.flixcart.com/image/416/416/bean-bag/j/b/q/y7-mr-lazy-xxxl-original-imae6gtuuj3qzrxg.jpeg?q=70",
+20,"Furniture");
+insert into product
+value(116, "Modern Art Wall Frame", 1437, "https://cdn.shopify.com/s/files/1/1306/4195/products/wallmantra-framed-digital-prints-colorful-modern-art-wall-frame-painting-abstract-design-framed-with-break-resistant-clear-acrylic-22000368976038_1000x1000.jpg?v=1628546532",
+25,"Decor");
+insert into product
+value(117, "Designer Teapoy Table", 2655, "https://4.imimg.com/data4/UJ/SJ/MY-26885767/designer-teapoy-table-500x500.jpg",
+12, "Table");
+insert into product
+value(118, "Decor Vintage Bicycle", 654, "https://media.istockphoto.com/photos/vintage-bicycle-picture-id489426569?s=612x612",
+5, "Decor");
+insert into product
+value(119, "Dream Catcher", 587, "https://previews.123rf.com/images/dashtik/dashtik2002/dashtik200200150/140435341-dream-catcher-with-feathers-threads-and-beads-rope-hanging-dreamcatcher-handmade.jpg",
+10, "Decor");
+insert into product
+value(120, "Kushans", 3546, "https://rukminim1.flixcart.com/image/416/416/jt8yxe80/cushion-pillow-cover/h/3/y/cc11008-sunflower-design-cushion-covers-original-imafemb2k3empkwt.jpeg?q=70",
+12, "Furniture");
+
+
+

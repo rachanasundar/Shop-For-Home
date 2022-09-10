@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="bg-img" align="center"><br><br>
+    <form  class="container" [formGroup]="signInRef" (ngSubmit)="storeAdmin()">
+      <h1>Signup-Admin</h1>
+      
+      <input type="text" placeholder="Enter Email" formControlName ="email">
+      <input type="text" placeholder="Enter Name" formControlName ="name">
+
+      <input type="password" placeholder="Enter Password" formControlName ="password" >
+  
+      <input type="submit" class="btn" value="SignUp" [disabled]="signInRef.invalid">
+      
+      
+    </form>
+    <a href="adminlogin" >I am already member</a>
+  </div>
+  {{signInMsg}}

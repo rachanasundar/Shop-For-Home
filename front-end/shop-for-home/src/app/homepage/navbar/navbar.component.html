@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><b>Shop-For-Home</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav  ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="" routerLinkActive="active-link">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="adminLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../viewUser" routerLinkActive="active-link">View User</a>
+          </li>
+          <li class="nav-item" *ngIf="adminLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../viewProduct" routerLinkActive="active-link">View Products </a>
+          </li>
+          <li class="nav-item" *ngIf="adminLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../viewStocks" routerLinkActive="active-link">View Stock </a>
+          </li>
+          <li class="nav-item" *ngIf="adminLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../viewSales" routerLinkActive="active-link">View Sales</a>
+          </li>
+          <li class="nav-item" *ngIf="adminLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../discoutCoupons" routerLinkActive="active-link">Discout Coupons</a>
+          </li>
+          <li class="nav-item" *ngIf="userLogInFlag">
+            <a class="nav-link active " aria-current="page" routerLink="../products" routerLinkActive="active-link">Products </a>
+          </li>
+          <li class="nav-item " *ngIf="userLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../cart" routerLinkActive="active-link">Cart </a>
+          </li>
+          <li class="nav-item" *ngIf="userLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../wishlist" routerLinkActive="active-link">Wish List </a>
+          </li>
+          <li class="nav-item" *ngIf="userLogInFlag">
+            <a class="nav-link active" aria-current="page" routerLink="../orders" routerLinkActive="active-link">Orders </a>
+          </li>
+          <li class="nav-item" *ngIf="!homeFlag">
+            <a (click) ="logout()" class="nav-link active" aria-current="page" routerLink="" routerLinkActive="active-link" >Log Out </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="homeFlag">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="../login" routerLinkActive="active-link">User</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="../adminlogin" routerLinkActive="active-link">Admin</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" *ngIf="homeFlag">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sign Up
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="../signup" routerLinkActive="active-link">User</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="../adminsignup" routerLinkActive="active-link">Admin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

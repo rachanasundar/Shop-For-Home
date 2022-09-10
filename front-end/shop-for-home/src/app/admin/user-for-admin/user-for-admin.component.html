@@ -1,0 +1,71 @@
+<app-navbar></app-navbar><br>
+<div align="center">
+    <input type="button" value="Add New User" (click)="storeBtn()">
+    <br>
+</div><br>
+<div *ngIf="addFlag" >
+    <div class="container">
+    <form #userRef="ngForm" (ngSubmit)="storeUser(userRef)" class="form-group">
+       
+        <input type="email" name="email" placeholder="Email" ngModel class="form-control" required ><br>
+     
+        <input type="text" name="name" placeholder="Name" ngModel class="form-control"><br>                
+       
+        <input type="text" name="password" placeholder="Password" ngModel class="form-control" ><br>
+        <input type="submit" value="Add" >
+
+    </form>
+</div>
+<div align="center">
+<input type="button"  value="Close" (click)="closeBtn()">
+</div>
+</div><hr>
+<div *ngIf="updateFlag">
+    <div class="container">
+    <b>Update User Name</b><br>
+            <form (ngSubmit)="updateName()">
+               
+                <label>Email</label>
+                <input class="input-field" type="text" name="email" [(ngModel)]="email" readonly placeholder="Email"><br>
+                <label>Name</label>
+                <input class="input-field" type="text" name="name" [(ngModel)]="name" ><br>
+                <input type="submit" value="Update">
+            </form></div>
+    
+    <hr>
+    <div *ngIf="passFlag">
+        <div class="container">
+        <b>Update Password</b><br>
+        <form (ngSubmit)="updatePassword()">
+            <label>Email</label>
+                <input class="input-field" type="text" name="email" [(ngModel)]="email" readonly><br>
+            <label>Password</label>
+            <input class="input-field" type="text" name="password" [(ngModel)]="password" ><br>
+            <input type="submit" value="Update">
+        </form></div>
+</div>
+<div align="center">
+    <input type="button" value="Close" (click)="closeBtn()">
+</div><hr>
+</div>
+<div *ngIf="flag">
+    <h3 align="center">List Of Users</h3>
+    <div *ngFor="let user of users" >
+        
+            <div class="column">
+              <div class="card">
+       
+        <div class="container">
+         Email :{{user.email}}  <br> 
+         Name :{{ user.name}}    <br>
+        Password:{{user.password}}<br>
+        
+        <input type="button" class="btn1" value="Update" (click)="updateBtn(user)">
+        <input type="button" value="Delete" (click)="delete(user.email)">
+        <br>
+    </div>
+</div> 
+</div>
+</div>
+</div>
+

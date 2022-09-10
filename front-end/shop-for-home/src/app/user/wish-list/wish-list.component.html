@@ -1,0 +1,24 @@
+ 
+<app-navbar></app-navbar>
+<h1 align="center">YOUR WISH-LIST</h1><hr><br>
+<div *ngFor="let list of listOfWishList">
+    <div class="column">
+        <div class="card">
+        <div class="container">
+            
+<img src="{{list.imageUrl}}"><br>
+Product Id :{{list.keys.productId}}<br>
+Product Name :{{list.productName}}<br>
+Product Price :{{list.productPrice|currency:'INR'}}<br>
+Category :{{list.categories}}<br>
+<br>
+<input type="button" class="btn1" value="Move to Cart" (click)="moveToCart(list)">
+<input type="button" class="btn2" value="Delete" (click)="deleteFromWishList(list.keys)">
+</div>
+</div>
+</div>
+</div>
+
+<div *ngIf="emptyFlag">
+    <h4 align="center">Ooops Your Wish List is empty....</h4>
+</div>

@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<app-navbar></app-navbar>
+<div >
+  <li class="nav-item dropdown" >
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     Sort
+    </a>
+    
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+      <li><input type="button" (click)="increasingPrice()" value="Low To High Price"></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><input type="button" (click)="decreasingPrice()" value="High to Low Price"></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><input type="button" (click)="loadAllProduct()" value="Default Product Price"></li>
+    </ul>
+  
+  </li>
+</div>
+
+<div class="example">
+  <form #searchRef="ngForm" (ngSubmit)="search(searchRef)">
+    <input type="submit" class="btn10" value="Search">
+<input type="text" name="searchText" placeholder="For Categories.." ngModel class="form-control">
+
+  </form>
+</div><br><br>
+<hr>
+<h3 align="center"> Products </h3><hr>
+<div *ngIf="flag">
+<div *ngFor="let product of products" >
+   
+    
+        <div class="column">
+          <div class="card">
+   
+    <div class="container">
+    <img src="{{product.imageUrl}}"><br>
+    Product Id :{{product.productId}}<br>
+    Product Name :{{product.productName}}<br>
+    Product Price :{{product.productPrice|currency:'INR'}}<br>
+    Stock :{{product.stock}}<br>
+    Category :{{product.categories}}<br>
+    <br>
+    <div *ngIf="userLogInFlag">
+    <input type="button" class="btn1" value="Add to Cart" (click)="addToCart(product)">
+    <input type="button"  value="Add to Wish List" (click)="addToWishList(product)">
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div *ngIf="resultFlag">
+  <div align="center">
+      <input type="button" value="Close" (click)="closeBtn()">
+      </div><br>
+  <h3 align="center">List Of Searched Product</h3>
+  
+  <div *ngFor="let product of resultProduct">
+      
+          <div class="column">
+            <div class="card">
+     
+      <div class="container">
+          <img src="{{product.imageUrl}}"><br>
+          Product Id :{{product.productId}}<br>
+          Product Name :{{product.productName}}<br>
+          Product Price :{{product.productPrice|currency:'INR'}}<br>
+          Stock :{{product.stock}}<br>
+          Category :{{product.categories}}<br>
+          <input type="button" class="btn1" value="Add to Cart" (click)="addToCart(product)">
+    <input type="button"  value="Add to Wish List" (click)="addToWishList(product)">
+          <br>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+  
+</div>
+

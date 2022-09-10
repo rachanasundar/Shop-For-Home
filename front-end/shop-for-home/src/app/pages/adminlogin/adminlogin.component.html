@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="bg-img" align="center"><br><br>
+    <form  class="container"[formGroup]="logInRef" (ngSubmit)="adminLogin()" >
+      <h1>Login-Admin</h1>
+
+      <input type="text" placeholder="Enter Email" formControlName ="email">
+
+      <input type="password" placeholder="Enter Password" formControlName ="password">
+  
+      <input type="submit" class="btn" [disabled]="logInRef.invalid" value="Login">
+      
+    </form>
+    Don't have an Account !!
+      <a href="adminsignup">SignUp</a>
+      {{logInMsg}}
+  </div>
+ 

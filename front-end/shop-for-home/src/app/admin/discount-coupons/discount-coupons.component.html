@@ -1,0 +1,73 @@
+<app-navbar></app-navbar><br>
+<h2 align="center">Discount Coupons</h2><hr>
+<div *ngIf="flag">
+
+<div align="center">
+    <h5>Alloted Discount Coupons 
+    <input type="button" class="btn2" value="Add Coupon" (click)="add()"></h5>
+</div><hr>
+<table class="center">
+    <tr>
+        <th>Email</th>
+        <th>Coupon Code</th>
+        <th>Discount</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let discount of discounts">
+        <td>{{discount.key.email}}</td>
+        <td>{{discount.key.coupon}}</td>
+        <td>{{discount.discount}}</td>
+        <td><input type="button" value="Update" (click)="updateBtn(discount)"></td>
+        <td><input type="button" value="Delete" (click)="delete(discount.key)"></td>
+    </tr>
+</table>
+</div>
+<div *ngIf="updateFlag">
+<h3>Update Coupon</h3>
+        <form (ngSubmit)="update()"> 
+            <label>Email</label>
+                <input class="input-field" type="text" name="email" [(ngModel)]="email" readonly placeholder="Email"><br>
+                <label>Coupon Code</label>
+                <label>Email</label>
+                <input class="input-field" type="text" name="coupon" [(ngModel)]="coupon" readonly placeholder="Coupon Code"><br>
+                <label>Discount </label>
+                <input class="input-field" type="number" name="discount" [(ngModel)]="discount" placeholder="Discount"><br>
+                <input type="submit" value="Update">
+        </form>
+        
+        <input type="button" value="Close" (click)="closeBtn()">
+    
+</div>
+
+<div *ngIf="addFlag">
+<table class="center">
+    <tr>
+        <th>Email</th>
+        <th>Add Coupon</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.email}}</td>
+        <td><input type="button" value="Add Coupon" (click)="addBtn(user.email)"></td>
+    </tr>
+</table>
+<div align="center">
+<input type="button" value="Close" (click)="closeBtn()">
+</div>
+</div>
+<div *ngIf="addFormFlag">
+    <div class="container">
+    <form (ngSubmit)="storeCoupon()">
+        <label>Email</label>
+                <input class="input-field" type="text" name="email" [(ngModel)]="email" readonly placeholder="Email"><br>
+                <label>Coupon Code</label>
+                <input class="input-field" type="text" name="coupon" [(ngModel)]="coupon" placeholder="Coupon Code"><br>
+                <label>Discount </label>
+                <input class="input-field" type="number" name="discount" [(ngModel)]="discount" placeholder="Discount"><br><br>
+                <input type="submit" class="btn3" value="Add"><br><br>
+    </form>
+    <div align="center">
+    <input type="button" value="Close" (click)="closeBtn()">
+    </div>
+</div>
+</div>

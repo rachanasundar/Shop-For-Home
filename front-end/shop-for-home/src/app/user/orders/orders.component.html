@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+<!-- <div *ngIf="noOrder">
+    <h5>No Orders yet !!!! </h5>
+</div> -->
+<h1 align="center">YOU ORDERS</h1><hr>
+<div *ngIf="newOrder">
+    <table class="center">
+    <tr> <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th> Product Price</th></tr>
+        <tr *ngFor="let cart of listOfCart">
+            <td>{{cart.keys.productId}}</td>
+            <td>{{cart.productName}}</td>
+            <td>{{cart.quantity}}</td>
+            <td>{{cart.productPrice|currency:'INR'}}</td>
+        </tr>
+        <tr><td>-----</td><td>---</td><td>------</td><td>-----</td></tr>
+        <tr>
+            <td></td>
+            <td>Total:</td>
+            <td>{{size}}</td>
+            <td>{{total|currency:'INR'}}</td>
+        </tr>
+    </table><br>
+    <input type="button" value="Generate Bill" (click)="bill()"><hr >
+    <div class="example">
+        <form #couponRef="ngForm" (ngSubmit)="verifyCoupon(couponRef)">
+            <label><b>Apply Coupon and Get Upto 50%0ff</b></label><br> 
+            <input type="text" name="couponApplied" placeholder="Coupon Code" ngModel class="form-control">
+            <input type="submit" class="btn10" value="Apply"><br>
+        </form>
+    </div><br><br>
+    <div>
+        <span>Coupon list:</span>
+        <ul *ngFor="let coupon of coupons ">
+            <li>{{coupon}}</li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="couponFLag" align="center">
+    <table class="center">
+        <tr> <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th> Product Price</th></tr>
+            <tr *ngFor="let cart of mycart">
+                <td>{{cart.keys.productId}}</td>
+                <td>{{cart.productName}}</td>
+                <td>{{cart.quantity}}</td>
+                <td>{{cart.productPrice|currency:'INR' }}</td>
+            </tr>
+            <tr><td>-----</td><td>---</td><td>------</td><td>-----</td></tr>
+            <tr>
+                <td></td>
+                <td>Total:</td>
+                <td>{{size}}</td>
+                <td>{{newTotal|currency:'INR'}}</td>
+            </tr>
+        </table>
+        <h5>Discount :{{discount}}%</h5>
+        <h5>Old Total : {{total|currency:'INR'}}</h5>
+        <h5>New Total:{{newTotal|currency:'INR'}}</h5>
+        <h5>Saved: {{total-newTotal|currency:'INR'}}</h5><br><br>
+        <input type="button" value="Generate Bill" (click)="billWithCoupon()"><br><br>
+        <input type="button" value="Close And Try Another Coupon" (click)="close()">
+</div>
+<div align="center">
+<div *ngIf="finalBill">
+   <h4> Bill Generated </h4>
+   <table class="center">
+    <tr> <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th> Product Price</th></tr>
+        <tr *ngFor="let cart of listOfCart">
+            <td>{{cart.keys.productId}}</td>
+            <td>{{cart.productName}}</td>
+            <td>{{cart.quantity}}</td>
+            <td>{{cart.productPrice|currency:'INR'}}</td>
+        </tr>
+        <tr><td>-----</td><td>---</td><td>------</td><td>-----</td></tr>
+        <tr>
+            <td></td>
+            <td>Total:</td>
+            <td>{{size}}</td>
+            <td>{{total|currency:'INR'}}</td>
+        </tr>
+    </table><br>
+    <h5>Total : {{total|currency:'INR'}}</h5><br>
+    <input type="button" value="Pay Amount"(click)="pay()">
+</div>
+</div>
+<div *ngIf="finalBill1" align="center">
+    <h4> Bill Generated </h4> 
+    <table class="center">
+        <tr> <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th> Product Price</th></tr>
+            <tr *ngFor="let cart of mycart">
+                <td>{{cart.keys.productId}}</td>
+                <td>{{cart.productName}}</td>
+                <td>{{cart.quantity}}</td>
+                <td>{{cart.productPrice|currency:'INR' }}</td>
+            </tr>
+            <tr><td>-----</td><td>---</td><td>------</td><td>-----</td></tr>
+            <tr>
+                <td></td>
+                <td>Total:</td>
+                <td>{{size}}</td>
+                <td>{{newTotal|currency:'INR'}}</td>
+            </tr>
+        </table>
+    <h5>Total : {{newTotal|currency:'INR'}}</h5>
+    <input type="button" value="Pay Amount"(click)="pay1()">
+</div>
+<div *ngIf="allOrders">
+    <table class="example">
+        <tr>
+            <th>Date</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Product Price</th>
+            
+        </tr>
+        <tr *ngFor="let o of allOrderList">
+            <td>{{o.keys.dateAndTime}}</td>
+            <td>{{o.keys.productId}}</td>
+            <td>{{o.productName}}</td>
+            <td>{{o.quantity}}</td>
+            <td>{{o.categories}}</td>
+            <td>{{o.productPrice}}</td>
+        </tr>
+    </table>
+</div>

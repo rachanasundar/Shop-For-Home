@@ -1,0 +1,231 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<app-navbar></app-navbar><br>
+<div align="center">
+        <div class="example">
+            <form #searchRef="ngForm" (ngSubmit)="search(searchRef)">
+                <input type="submit" class="btn10" value="Search">
+                <input type="text" name="searchText" placeholder="For Categories.." ngModel class="form-control">
+                
+            </form>
+        </div><br>
+<div align="left">
+    <input type="button" class="btn3" value="Add New Product" (click)="storeProductsBtn()"> 
+    <input type="button" value="Bulk Upload" (click)="bulkBtn()">
+
+</div>
+
+</div><br>
+<div *ngIf ="addFlag">
+
+        <div>
+            <form #productRef="ngForm" (ngSubmit)="storeProducts(productRef)" class="form-group">
+                
+                <input type="number" name="productId" ngModel class="form-control" required placeholder="Product Id"><br>
+               
+                <input type="text" name="productName" ngModel class="form-control" placeholder="Product Name"><br>                
+               
+                <input type="number" name="productPrice" ngModel class="form-control" placeholder="Product Price" ><br>
+               
+                <input type="text" name="imageUrl" ngModel class="form-control" placeholder="Product Image Url"><br>
+               
+                <input type="number" name="stock" ngModel class="form-control" placeholder="Product Stock" ><br>
+               
+                <input type="text" name="categories" ngModel class="form-control" placeholder="Product Category"><br>
+                <input type="submit" class="btn4" value="Add">
+            </form>
+        </div><br><br>
+        <div align="center">
+        <input type="button" value="Close" (click)="closeBtn()">
+    </div>
+</div><hr>
+
+<div *ngIf="updateFlag" >
+    <div align="center">
+    <b>Update Product</b><br>
+</div>
+    <hr>
+    <div *ngIf="nameFlag">
+        <div class="container">
+        Update Product Name<br>
+            <form (ngSubmit)="updateProductName()">
+
+                <label>Product Id</label>
+                <input  class="input-field" type="text" name="productId" [(ngModel)]="productId" readonly><br>
+                <label>Product Name</label>
+                <input class="input-field" type="text" name="productName" [(ngModel)]="productName" ><br>
+                <input type="submit" value="Update">
+            </form></div>
+    </div>
+    <hr>
+    <div *ngIf="priceFlag">
+        <div class="container"> 
+        Update Product Price<br>
+        <form (ngSubmit)="updateProductPrice()">
+            <label>Product Id</label>
+            <input type="text" name="productId" [(ngModel)]="productId" readonly><br>
+            <label>Product Price</label>
+            <input type="number" name="productPrice" [(ngModel)]="productPrice" ><br>
+            <input type="submit" value="Update">
+        </form></div>
+    </div>
+    <hr>
+    <div *ngIf="urlFlag">
+        <div class="container">
+        Update Product Image Url<br>
+        <form (ngSubmit)="updateProductUrl()">
+            <label>Product Id</label>
+            <input type="text" name="productId" [(ngModel)]="productId" readonly><br>
+            <label>Product Image Url</label>
+            <input type="text" name="imageUrl" [(ngModel)]="imageUrl" ><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</div>
+    <hr>
+    <div *ngIf="stockFlag">
+        <div class="container">
+        Update Product Stock<br>
+        <form (ngSubmit)="updateProductStock()">
+            <label>Product Id</label>
+            <input type="text" name="productId" [(ngModel)]="productId" readonly><br>
+            <label>Product Stock</label>
+            <input type="number" name="stock" [(ngModel)]="stock" ><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+    </div>
+    <hr>
+    <div *ngIf="categoriesFlag">
+        <div class="container">
+        Update Product Category<br>
+        <form (ngSubmit)="updateProductCategory()">
+            <label>Product Id</label>
+            <input type="text" name="productId" [(ngModel)]="productId" readonly><br>
+            <label>Product Category</label>
+            <input type="text" name="categories" [(ngModel)]="categories" ><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+    </div>
+    
+    <div align="center">
+    <input type="button" value="Close" (click)="closeBtn()"><hr>
+</div>
+</div>
+<div *ngIf="flag">
+<h3 align="center">List Of Products</h3>
+
+<div *ngFor="let product of products">
+    
+        <div class="column">
+          <div class="card">
+   
+    <div class="container">
+    <img src="{{product.imageUrl}}"><br>
+    Product Id :{{product.productId}}<br>
+    Product Name :{{product.productName}}<br>
+    Product Price :{{product.productPrice|currency:'INR'}}<br>
+    Stock :{{product.stock}}<br>
+    Category :{{product.categories}}<br>
+    <input type="button" class="btn1" value="Update" (click)="updateBtn(product)">
+    <input type="button" value="Delete" (click)="delete(product.productId)">
+    <br>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div *ngIf="resultFlag">
+    <div align="center">
+        <input type="button" value="Close" (click)="closeBtn()">
+        </div>
+    <h3 align="center">List Of Searched Product</h3>
+    
+    <div *ngFor="let product of resultProduct">
+        
+            <div class="column">
+              <div class="card">
+       
+        <div class="container">
+            <img src="{{product.imageUrl}}"><br>
+            Product Id :{{product.productId}}<br>
+            Product Name :{{product.productName}}<br>
+            Product Price :{{product.productPrice|currency:'INR'}}<br>
+            Stock :{{product.stock}}<br>
+            Category :{{product.categories}}<br>
+            <input type="button" class="btn1" value="Update" (click)="updateBtn(product)">
+            <input type="button" value="Delete" (click)="delete(product.productId)">
+            <br>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    
+</div>
+
+ <div *ngIf="bulkFlag">
+
+    <h3>Bulk Upload Of Products </h3><br>
+<p>
+    INSTRUCTIONS:<br>
+</p>
+<ol>
+<li>The CSV file should have 6 columns</li>
+<li>The Column Headder should be as follows:
+        <strong>productId, productName, productPrice, imageUrl, stock, categories</strong></li>
+</ol>
+<h5>File Upload:</h5>
+    
+<form (ngSubmit)="upload()" >
+  <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="onFileSelect($event)" accept=".csv" />    
+    <input type="submit" value="Upload">
+</form>
+</div>
+
+<!-- <div *ngIf="bulkFlag">
+
+    <h3>Bulk Upload Of Products </h3><br>
+<p>
+    INSTRUCTIONS:<br>
+</p>
+<ol>
+<li>The CSV file should have 6 columns</li>
+<li>The Column Headder should be as follows:
+        <strong>productId, productName, productPrice, imageUrl, stock, categories</strong></li>
+</ol>
+<h5>File Upload:</h5>
+    
+<form (ngSubmit)="upload()" >
+  <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="onFileSelect($event)" accept=".csv" />    
+    <input type="submit" value="Upload">
+</form>
+   <table  *ngIf="records.length > 0">    
+    <thead>    
+      <tr>    
+        <th>Product Id</th>    
+        <th>Product Name </th>    
+        <th>Product Price </th>    
+        <th>Image Url </th>    
+        <th>Stock </th>    
+        <th>Category </th>    
+      </tr>    
+    </thead>    
+    <tbody>    
+      <tr *ngFor="let record of records">   
+         
+        <td> <span>{{records.productId}}</span> </td>    
+        <td> <span>{{records.productName}}</span> </td>    
+        <td> <span>{{records.productPrice}}</span> </td>    
+        <td> <span><img src="{{records.imageUrl}}"></span> </td>    
+        <td> <span>{{records.stock}}</span> </td>    
+        <td> <span>{{records.stock}}</span> </td>    
+      </tr>    
+    </tbody>     -->
+  <!-- </table> -->
+   
+<!-- </div> -->
+

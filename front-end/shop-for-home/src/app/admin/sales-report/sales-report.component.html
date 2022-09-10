@@ -1,0 +1,31 @@
+<app-navbar></app-navbar><br>
+<h2 align="center">Sales Report</h2><hr>
+<div align="center">
+    <input type="button" class="btn1" value="Today's Sale" (click)="getTodaysSales()">
+    <input type="button" class="btn1" value="This Month's Sale" (click)="getThisMonthsSales()">
+    <input type="button" value="All Sales" (click)="getAllSales()">
+</div>
+<hr>
+<div>
+    <table class="center">
+        <tr>
+            <th>Date And Time</th>
+            <th>Email</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Quantity</th>
+            <th>Categories</th>
+            
+        </tr>
+        <tr *ngFor="let sale of sales">
+            <td>{{sale.keys.dateAndTime}}</td>
+            <td>{{sale.keys.email}}</td>
+            <td>{{sale.keys.productId}}</td>
+            <td>{{sale.productName}}</td>
+            <td>{{sale.productPrice}}</td>
+            <td>{{sale.quantity}}</td>
+            <td>{{sale.categories}}</td>
+        </tr>
+    </table>
+</div>
