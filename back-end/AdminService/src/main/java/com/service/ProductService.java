@@ -115,7 +115,7 @@ public class ProductService {
 
 			for (String email : listOfAdmin) {
 				System.out.println(p.getStock());
-				emailSenderService.sendEmail(email, body, "Product Stock");
+//				emailSenderService.sendEmail(email, body, "Product Stock");
 			}
 
 		}

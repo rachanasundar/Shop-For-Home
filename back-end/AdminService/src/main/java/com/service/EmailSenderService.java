@@ -7,21 +7,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailSenderService {
-	@Autowired
-	private JavaMailSender mailSender;
-
-	public void sendEmail( String toEmail, String body, String subject){
-		
-		SimpleMailMessage message =new SimpleMailMessage();
-		
-		message.setFrom("bhavanaperam525@gmail.com");
-		message.setTo(toEmail);
-		message.setText(body);
-		message.setSubject(subject);
-		
-		mailSender.send(message);
-		System.out.println("Email sent ........");
-		
-		
-	}
+//	@Autowired
+//	private JavaMailSender mailSender;
+//
+//	public void sendEmail( String toEmail, String body, String subject){
+//		
+//		SimpleMailMessage message =new SimpleMailMessage();
+//		
+//		message.setFrom("bhavanaperam525@gmail.com");
+//		message.setTo(toEmail);
+//		message.setText(body);
+//		message.setSubject(subject);
+//		
+//		mailSender.send(message);
+//		System.out.println("Email sent ........");
+//		
+//		
+//	}
 }

@@ -79,7 +79,7 @@ private void getStocks(List<Product> product) {
 
 		for (String email : listOfAdmin) {
 			System.out.println(p.getStock());
-			emailSenderService.sendEmail(email, body, "Reducing Product Stock");
+//			emailSenderService.sendEmail(email, body, "Reducing Product Stock");
 		}
 
 	}
