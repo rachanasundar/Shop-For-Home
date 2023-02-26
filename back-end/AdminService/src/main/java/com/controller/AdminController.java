@@ -24,7 +24,7 @@ public class AdminController {
 
 	@PostMapping(value = "adminSignIn", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String adminRegister(@RequestBody Admin admin) {
-		return adminService.adminRegistration(admin);
+		return adminService.signIn(admin);
 	}
 
 	

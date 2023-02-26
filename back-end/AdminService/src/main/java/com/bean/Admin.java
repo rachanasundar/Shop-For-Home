@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Admin {
 	@Id
 	private String email;
-	private String name;
+
 	private String password ;
 	
 	public Admin() {
@@ -15,12 +15,15 @@ public class Admin {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(String email, String name, String password) {
+	
+
+	public Admin(String email, String password) {
 		super();
 		this.email = email;
-		this.name = name;
 		this.password = password;
 	}
+
+
 
 	public String getEmail() {
 		return email;
@@ -30,13 +33,7 @@ public class Admin {
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getPassword() {
 		return password;
@@ -46,12 +43,13 @@ public class Admin {
 		this.password = password;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Admin [email=" + email + ", name=" + name + ", password=" + password + "]";
+		return "Admin [email=" + email + ", password=" + password + "]";
 	}
-	
-	
+
 	
 	
 

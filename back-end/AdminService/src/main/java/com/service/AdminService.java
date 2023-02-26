@@ -14,26 +14,31 @@ public class AdminService {
 	@Autowired
 	AdminDao adminDao;
 	
-	public String adminRegistration(Admin admin) {
+	public String signIn(Admin admin) {
 
 		if (adminDao.existsById(admin.getEmail())) {
-			return "Admin id must be unique";
+			return "Email with "+admin.getEmail()+" already exists. Please LOG IN";
 		} else {
 			adminDao.save(admin);
-			return "Sign In successfully";
+			return "Sign In Successful";
 		}
 	}
 
 	public String logIn(Admin admin) {
-		if (!adminDao.existsById(admin.getEmail())) {
-			return "Admin  details not present";
-		} else {
-			Admin a = adminDao.getById(admin.getEmail());
-			if (a.getPassword().equals(admin.getPassword())) {
-				return "Log In Successful";
+		if(adminDao.count()>0) {
+			if (!adminDao.existsById(admin.getEmail())) {
+				return "Email with "+admin.getEmail()+" doesnot exists. Please SIGN IN";
 			} else {
-				return "Log In Failed. Wrong Password";
+				Admin a = adminDao.getById(admin.getEmail());
+				if (a.getPassword().equals(admin.getPassword())) {
+					return "Log In Successful";
+				} else {
+					return "Log In Failed. Incorrect Password";
+					
+				}
 			}
+		}else {
+			return "Email with "+admin.getEmail()+" doesnot exists. Please SIGN IN";
 		}
 	}
 	
