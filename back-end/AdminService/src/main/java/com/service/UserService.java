@@ -15,10 +15,10 @@ public class UserService {
 
 	public String storeUser(User user) {
 		if (userDao.existsById(user.getEmail())) {
-			return "Failed to store user info. User email should be unique";
+			return "Failed to store user info. User email:"+user.getEmail()+"  already exists.";
 		} else {
 			userDao.save(user);
-			return "User stored succesfully.....";
+			return "User Stored Succesfully.";
 		}
 	}
 
@@ -27,29 +27,18 @@ public class UserService {
 
 	}
 
-	public String updateUsername(User user) {
-		if (!userDao.existsById(user.getEmail())) {
-			return "User " + user.getEmail() + " details not present";
-		} else {
-			User u = userDao.getById(user.getEmail());
-			u.setName(user.getName());
-			userDao.saveAndFlush(u);
-			return "User " + user.getEmail() + " name updated successfully";
-		}
 
-	}
-
-	public String updateUserPassword(User user) {
-		if (!userDao.existsById(user.getEmail())) {
-			return "User " + user.getEmail() + " details not present";
-		} else {
-			User u = userDao.getById(user.getEmail());
-			u.setPassword(user.getPassword());
-			userDao.saveAndFlush(u);
-			return "User " + user.getEmail() + " password updated successfully";
-		}
-
-	}
+//	public String updateUserPassword(User user) {
+//		if (!userDao.existsById(user.getEmail())) {
+//			return "User " + user.getEmail() + " details not present";
+//		} else {
+//			User u = userDao.getById(user.getEmail());
+//			u.setPassword(user.getPassword());
+//			userDao.saveAndFlush(u);
+//			return "User " + user.getEmail() + " password updated successfully";
+//		}
+//
+//	}
 
 	public String deleteUser(String email) {
 
@@ -57,7 +46,7 @@ public class UserService {
 			return "User " + email + " details not present";
 		} else {
 			userDao.deleteById(email);
-			return "User " + email + " deleted succesfully.....";
+			return "User " + email + " deleted succesfully.";
 		}
 
 	}

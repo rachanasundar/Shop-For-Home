@@ -36,17 +36,12 @@ public String storeUserInfo(@RequestBody User user) {
 	return userService.getAllUser();
 	}
 
-	@PatchMapping(value = "updateUserName")
-	public String updateUserName(@RequestBody User user) {
-		return userService.updateUsername(user);
-	}
-					
-
 	
-	@PatchMapping(value = "updateUserPassword")
-	public String updateUserPassword(@RequestBody User user) {
-		return userService.updateUserPassword(user);
-	}
+	
+//	@PatchMapping(value = "updateUserPassword")
+//	public String updateUserPassword(@RequestBody User user) {
+//		return userService.updateUserPassword(user);
+//	}
 					
 	
 	

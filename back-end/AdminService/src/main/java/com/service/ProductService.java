@@ -25,7 +25,7 @@ public class ProductService {
 			return "Failed to store product. Product Id much be unique";
 		} else {
 			productDao.save(product);
-			return "Product stored succesfully.....";
+			return "Product Stored Succesfully. Product Id: " + product.getProductId();
 		}
 
 	}
@@ -49,48 +49,48 @@ public class ProductService {
 
 	public String updateProductPrice(Product product) {
 		if (!productDao.existsById(product.getProductId())) {
-			return "Product " + product.getProductId() + " details not present";
+			return "Product with ID:" + product.getProductId() + " details not present";
 		} else {
 			Product p = productDao.getById(product.getProductId());
 			p.setProductPrice(product.getProductPrice());
 			productDao.saveAndFlush(p);
-			return "Product " + product.getProductId() + " price updated successfully";
+			return "Product with ID:" + product.getProductId() + " price updated successfully";
 		}
 	}
 
 	public String updateProductImageUrl(Product product) {
 		if (!productDao.existsById(product.getProductId())) {
-			return "Product " + product.getProductId() + " details not present";
+			return "Product with ID:" + product.getProductId() + " details not present";
 		} else {
 			Product p = productDao.getById(product.getProductId());
 			p.setImageUrl(product.getImageUrl());
 			productDao.saveAndFlush(p);
-			return "Product " + product.getProductId() + " image updated successfully";
+			return "Product with ID:" + product.getProductId() + " image updated successfully";
 		}
 
 	}
 
 	public String updateStock(Product product) {
 		if (!productDao.existsById(product.getProductId())) {
-			return "Product " + product.getProductId() + " details not present";
+			return "Product with ID:" + product.getProductId() + " details not present";
 		} else {
 			Product p = productDao.getById(product.getProductId());
 			p.setStock(product.getStock());
 			productDao.saveAndFlush(p);
 			getStocks(p);
-			return "Product " + product.getProductId() + " stock updated successfully";
+			return "Product with ID:" + product.getProductId() + " stock updated successfully";
 		}
 
 	}
 
 	public String updateCategory(Product product) {
 		if (!productDao.existsById(product.getProductId())) {
-			return "Product " + product.getProductId() + " details not present";
+			return "Product with ID:" + product.getProductId() + " details not present";
 		} else {
 			Product p = productDao.getById(product.getProductId());
 			p.setCategories(product.getCategories());
 			productDao.saveAndFlush(p);
-			return "Product " + product.getProductId() + " category updated successfully";
+			return "Product with ID:" + product.getProductId() + " category updated successfully";
 		}
 
 	}
@@ -98,10 +98,10 @@ public class ProductService {
 	public String deleteProduct(int id) {
 
 		if (!productDao.existsById(id)) {
-			return "Product " + id + " details not present";
+			return "Product with ID " + id + " Details Not Present";
 		} else {
 			productDao.deleteById(id);
-			return "Product " + id + " deleted succesfully.....";
+			return "Product with ID " + id + " Deleted Succesfully.";
 		}
 	}
 
@@ -120,27 +120,25 @@ public class ProductService {
 
 		}
 	}
-	
+
 	public List<Product> getResult(String text) {
-		
+
 		List<Product> listOfProduct = productDao.findAll();
-		Iterator<Product> ii =listOfProduct.iterator();
-		List<Product> result=new ArrayList<Product>();
-		
-		while(ii.hasNext()) {
-			Product p=ii.next();
-			if(p.getProductName().equalsIgnoreCase(text)) {
+		Iterator<Product> ii = listOfProduct.iterator();
+		List<Product> result = new ArrayList<Product>();
+
+		while (ii.hasNext()) {
+			Product p = ii.next();
+			if (p.getProductName().equalsIgnoreCase(text)) {
 				result.add(p);
-			}
-			else if (p.getProductName().contains(text)) {
+			} else if (p.getProductName().contains(text)) {
 				result.add(p);
-				
-			}else if(p.getCategories().equalsIgnoreCase(text)) {
+
+			} else if (p.getCategories().equalsIgnoreCase(text)) {
 				result.add(p);
-			}
-			else if(p.getCategories().contains(text)){
+			} else if (p.getCategories().contains(text)) {
 				result.add(p);
-				
+
 			}
 		}
 		return result;
