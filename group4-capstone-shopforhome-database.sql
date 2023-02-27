@@ -2,7 +2,7 @@
 drop database ShopForHome_group4;
 
 create database ShopForHome_group4;
-use ShopForHome_group4;
+use `shop_for_home`;
 
 
 

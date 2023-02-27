@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.User;
 import com.service.UserService;
+
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
@@ -23,33 +24,24 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@PostMapping(value = "storeUserInfo",
-			consumes = MediaType.APPLICATION_JSON_VALUE)
-public String storeUserInfo(@RequestBody User user) {
+	@PostMapping(value = "storeUserInfo", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String storeUserInfo(@RequestBody User user) {
 		return userService.storeUser(user);
 	}
-		
-					
-@GetMapping(value="getAllUser")
+
+	@GetMapping(value = "getAllUser")
 	public List<User> getAllUser() {
-	
-	return userService.getAllUser();
+
+		return userService.getAllUser();
 	}
 
-	
-	
 //	@PatchMapping(value = "updateUserPassword")
 //	public String updateUserPassword(@RequestBody User user) {
 //		return userService.updateUserPassword(user);
 //	}
-					
-	
-	
-	
-	
+
 	@DeleteMapping(value = "deleteUserInfo/{email}")
-	public String deleteUserInfo(@PathVariable("email") String  email)
-	{
+	public String deleteUserInfo(@PathVariable("email") String email) {
 		return userService.deleteUser(email);
 	}
 
